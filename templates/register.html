@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center m-40 mt-50">
+  <div class="card w-50 p-3 mt-20 mx-auto bg-dark text-white ">
+  <h2 class="d-flex justify-content-center fs-1">Register</h2>
+    <form method="post" action="postsignup">
+      {% csrf_token %}
+      <!-- {{ form.as_p }} -->
+        <div class="form-group">
+          <label class="fs-4" for="username">Username</label>
+          <input type="text" class="form-control" id="nameOfLoggedInUser" name="nameOfLoggedInUser" aria-describedby="emailHelp" placeholder="Place Username Here" required="true">
+        </div>
+        <div class="form-group mt-3">
+          <label class="fs-4" for="fullname">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="emailHelp" placeholder="Place First Name Here" required="true">
+        </div>
+        <div class="form-group mt-3">
+          <label class="fs-4" for="fullname">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="emailHelp" placeholder="Place Last Name Here" required="true">
+        </div>
+        <div class="form-group mt-3">
+          <label class="fs-4" for="email">Email</label>
+          <input type="email" class="form-control" id="emailOfUser" name="emailOfUser" aria-describedby="emailHelp" placeholder="Place Email Here" required="true">
+        </div>
+        <div class="form-group mt-3">
+          <label class="fs-4" for="password">Password</label>
+          <input type="password" class="form-control" id="passwordOfLoggedInUser" name="passwordOfLoggedInUser" placeholder="Password" required="true">
+        </div>
+        <div class="form-group mt-3">
+          <label class="fs-4" for="password">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required="true">
+        </div>
+        <button type="submit" class="btn btn-light mt-3">Register</button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

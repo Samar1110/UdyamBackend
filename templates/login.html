@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% load socialaccount %}
+<div class="d-flex justify-content-center m-40">
+  <div class="card w-50 p-3 mt-20 mx-auto bg-dark text-white">
+  <h2 class="d-flex justify-content-center fs-1 ">Log In</h2>
+    <form method="post" action="postlogin">
+      {% csrf_token %}
+        <div class="form-group">
+          <label class="fs-4" for="username">Username</label>
+          <input type="text" class="form-control" id="nameOfLoggedInUser" name="nameOfLoggedInUser" aria-describedby="emailHelp" placeholder="Place Username Here" required="true">
+        </div>
+        <div class="form-group">
+          <label class="fs-4" for="password">Password</label>
+          <input type="password" class="form-control" id="passwordOfLoggedInUser" name="passwordOfLoggedInUser" placeholder="Password"  required="true">
+        </div>
+        <button type="submit" class="btn btn-light mt-3">Log In</button>
+        <div>
+          <h2 class="d-flex justify-content-start fs-5 mt-2">Or</h2>
+        </div>
+        <div class="social">
+          <div class="row justify-center mb-10">
+            <div class="col-md-3 pl-2.5 mt-1 mb-3">
+              <a class="btn btn-outline-light w-100" href="{% url "social:begin" "google-oauth2" %}" role="button" style="text-transform:none;padding-right:2.3px;padding-left:2.3px;">
+                <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://cdn-icons-png.flaticon.com/128/2702/2702602.png" />
+                Login with your Google Id
+              </a>
+            </div>
+          </div>
+        </div>
+        
+    </form>
+  </div>
+
+</div>
+{% endblock %}
